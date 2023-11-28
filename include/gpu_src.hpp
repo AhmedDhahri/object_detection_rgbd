@@ -1,0 +1,39 @@
+#ifndef GPU_SRC_HPP
+	#define GPU_SRC_HPP
+	#include "opencv2/core/cuda.hpp"
+	#include "opencv2/cudaimgproc.hpp"
+	#include "opencv2/cudaarithm.hpp"
+	#include "opencv2/cudawarping.hpp"
+	#include "opencv2/cudafilters.hpp"
+	
+	using namespace std;
+	using namespace cv;
+
+	/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+	 * Parameters: 
+	 * 			src: RGB image
+	 * 			s: Cuda stream in the pipeline
+	 * function: Extract edges from source image linking the operation 
+	 * 				to a cuda stream.
+	 * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+	cuda::GpuMat  get_edge_cuda(cuda::GpuMat src, cuda::Stream s);
+	
+	
+	/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+	 * Parameters: 
+	 * 			template_path: Path of template file
+	 * function: create a bunch of upsampled image from the template 
+	 * 				image and store them in the pyramid array .
+	 * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+	void templates_pyramid(string template_path);
+	
+	/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+	 * Parameters: 
+	 * 			src: A pointer to the Mat image to be processed
+	 * function: Do the template matching on the image and each 
+	 * 				upsampled template in the pyramid aray and 
+	 * 				then extract the location with the lieast 
+	 * 				response. Then, download it in the src pointer.
+	 * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+	int locate_cuda(Mat* src);
+#endif

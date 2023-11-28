@@ -1,0 +1,37 @@
+camera_topic: "/depth_camera/color/image_raw"
+location_topic: "/object_detection_rgbd/location"
+template_path: "./config/temp.png"
+time_delay_csv_path: "/home/ahmed/objedt_detection_time_delay.csv"
+
+depth_sampling: 15
+
+DEBUG_LAB: false
+
+DEBUG_BIN: false
+target_color_L: 150
+target_color_a: 140
+target_color_b: 70
+
+DEBUG_GRAY: false
+BLUR_SIZE: 1
+BLUR_SIGMA: 1.0 
+
+DEBUG_THRESH: false 
+BIN_THRESH: 100
+
+DEBUG_EDG: false 
+EGD_THERSH1: 5
+EGD_THERSH2: 68
+
+DEBUG_DST: true 
+
+DEBUG_CMAP: true 
+COST_THRESH: 0.09
+
+COST_MAX: 120
+#Camera params 
+FOV_X: 500
+FOV_Y: 500
+Z0: 440
+R0: 1.5
+

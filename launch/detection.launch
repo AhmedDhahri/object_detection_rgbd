@@ -1,0 +1,6 @@
+<launch>
+	<node name="object_detection_rgbd" pkg="object_detection_rgbd" type="object_detection_rgbd_node">
+		<rosparam file="$(find object_detection_rgbd)/config/config.yaml"/>
+		<param name="template_path" value="$(find object_detection_rgbd)/config/temp.png"/>
+	</node>
+</launch>
